@@ -53,41 +53,41 @@ const AboutDe = () => {
     }
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-light fixed-top shadow">
-        <div class="container">
+      <nav className="navbar navbar-expand-lg bg-light fixed-top shadow">
+        <div className="container">
           <img src={svgexport1} alt="" className='img-fluid'/>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-              <li class="nav-item px-3">
-                  <Link to="/" class="nav-link text-dark" aria-current="page" style={myStyle}>Mini POS</Link>
+          <div className="collapse navbar-collapse" id="navbarText">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+              <li className="nav-item px-3">
+                  <Link to="/" className="nav-link text-dark" aria-current="page" style={myStyle}>Mini POS</Link>
               </li>
-              <li class="nav-item px-3">
-                  <Link to="/" class="nav-link text-dark" style={myStyle}>Merchants</Link>
+              <li className="nav-item px-3">
+                  <Link to="/" className="nav-link text-dark" style={myStyle}>Merchants</Link>
               </li>
-              <li class="nav-item px-3">
-                  <Link to="/" class="nav-link text-dark" style={myStyle}>Documentation</Link>
+              <li className="nav-item px-3">
+                  <Link to="/" className="nav-link text-dark" style={myStyle}>Documentation</Link>
               </li>
-              <li class="nav-item px-3 dropdown">
-                  <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={myStyle}>Company</a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item py-2 px-4" href="#">About Us</a></li>
-                      <li><a class="dropdown-item py-2 px-4" href="#">Blog</a></li>
-                      <li><a class="dropdown-item py-2 px-4" href="#">Contact Us</a></li>
-                      <li><a class="dropdown-item py-2 px-4" href="#">Press & Media</a></li>
+              <li className="nav-item px-3 dropdown">
+                  <a className="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={myStyle}>Company</a>
+                  <ul className="dropdown-menu">
+                      <li><a className="dropdown-item py-2 px-4" href="#">About Us</a></li>
+                      <li><a className="dropdown-item py-2 px-4" href="#">Blog</a></li>
+                      <li><a className="dropdown-item py-2 px-4" href="#">Contact Us</a></li>
+                      <li><a className="dropdown-item py-2 px-4" href="#">Press & Media</a></li>
                   </ul>
               </li>
-              <li class="nav-item px-3 dropdown">
-                  <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={myStyle}>Join Us</a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item py-2 px-4" href="#">Graduates</a></li>
-                      <li><a class="dropdown-item py-2 px-4" href="#">Experienced</a></li>
+              <li className="nav-item px-3 dropdown">
+                  <a className="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={myStyle}>Join Us</a>
+                  <ul className="dropdown-menu">
+                      <li><a className="dropdown-item py-2 px-4" href="#">Graduates</a></li>
+                      <li><a className="dropdown-item py-2 px-4" href="#">Experienced</a></li>
                   </ul>
               </li>
             </ul>
-            <span class="navbar-text">
+            <span className="navbar-text">
               <Link to="/signUp"><button className='btn form-control' style={{background:'#1FC69D',border:'none'}}>Sign-Up</button></Link>
             </span>
           </div>

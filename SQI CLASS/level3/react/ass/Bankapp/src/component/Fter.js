@@ -67,7 +67,7 @@ const Navbar = () => {
                 <p><b style={{opacity: '0.6'}}>**OPay will not charge you for any transaction done on the OPay app.</b></p>
               </div>
               <div className="col-12 mt-4">
-                <p style={{opacity: '0.6'}}>© {year}. OPay is a mobile money platform operated by OPay Digital Services Limited and licensed by the Central Bank of Nigeria. Launched in June 2018, the company has spread its services across all 36 states in Nigeria with over 300,000 mobile money merchants. Unauthorised reproduction and/or redistribution of copyrighted materials on this website and OPay’s social media pages is strictly prohibited.</p>
+                <p style={{opacity: '0.6'}}>© {year}. OPay is a mobile money platform operated by OPay Digital Services Limited and licensed by the Central Bank of Nigeria. Launched in June 2022, the company has spread its services across all 36 states in Nigeria with over 300,000 mobile money merchants. Unauthorised reproduction and/or redistribution of copyrighted materials on this website and OPay’s social media pages is strictly prohibited.</p>
               </div>
             </div>
           </div>

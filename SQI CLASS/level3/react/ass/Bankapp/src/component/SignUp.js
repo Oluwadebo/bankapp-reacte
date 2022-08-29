@@ -132,7 +132,7 @@ const AboutDe = () => {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 " style={{background:'#BA7A30'}}>
+            <div className="col-12 col-md-6" style={{background:'#BA7A30'}}>
               <div className="container">
                 <div className="card m-4 shadow asd text-light">
                   <img src={opalogo} alt="" className='img-fluid mx mt-4 mx-3 mx-md-5 mb-2'/>

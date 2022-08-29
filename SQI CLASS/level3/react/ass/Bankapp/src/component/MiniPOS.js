@@ -60,11 +60,11 @@ const Home = () => {
               </div>
             </div>
             <div className="col-12 col-md-6">
-              <img src={cardphoneimg} alt="" className='img-fluid'/>
+              <img src={cardphoneimg} alt="" className='img-fluid gose'/>
             </div>
           </div>
           <center>
-            <img src={svgexport6} alt="" />
+            <img src={svgexport6} alt="" className='gose'/>
           </center>
         </div>
       </div>
@@ -150,7 +150,7 @@ const Home = () => {
         </center>
         <div className="container">
           <center>
-            <img src={cardhand} className='img-fluid' alt="" />
+            <img src={cardhand} className='img-fluid gose' alt="" />
           </center>
         </div>
       </div>
@@ -188,7 +188,7 @@ const Home = () => {
         <div className="container">
           <div className="row pt-5">
             <div className="col-12 col-md-6 d-none d-md-block">
-              <img src={updatedphone} alt="" className='img-fluid'/>
+              <img src={updatedphone} alt="" className='img-fluid gose'/>
             </div>
             <div className="col-12 col-md-6 px-5 mt-md-5">
               <h2 className=' mt-5 pt-5 myStyle'><b>Download the app and start your journey to stress-free payments now</b></h2>

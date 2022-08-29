@@ -34,6 +34,7 @@ import Navbar from '../component/Navbar';
 import Footer from '../component/Fter'
 
 const Home = () => {
+  
   let mySpan = {
     textDecoration: 'underline',
     color:'#1FC69D'

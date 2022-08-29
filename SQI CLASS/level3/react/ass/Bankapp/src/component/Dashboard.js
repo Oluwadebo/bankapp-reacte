@@ -7,8 +7,9 @@ import svgexport1 from './assets/pic/svgexport-1.png'
 import Otransfer from './assets/pic/Otransfer.png'
 import paybill from './assets/pic/paybill.png'
 import Addmoneytobalance from './assets/pic/Addmoneytobalance.png'
+import App from '../App'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const navigate=useNavigate()
     const [allUser, setallUser] = useState([])
     const [User, setUser] = useState({})
@@ -33,13 +34,14 @@ const Dashboard = () => {
         }
     }, [])
     
-    const found = allUser.find((element,index) => {
-        return (element.email === current)
-    });
-    localStorage.user = JSON.stringify(found);
-    let last = localStorage.user;
+    let found = allUser.find((element,index) => element.email === current);
+    // localStorage.user = JSON.stringify(found);
+    // let last = localStorage.user;
     // let as = JSON.parse(localStorage.getItem("user"))
-    //    setUser(found)    
+    //    setUser(found)  
+    // let ade = found.find((item,index)=>{
+    //     return(item.Lastname)
+    // })  
      console.log(found);    
 
     // let index = allUser.findIndex((contact)=>contact.email == current)

@@ -29,6 +29,7 @@ const AboutDe = () => {
           let User = {email,password}
           if (a["email"] === User.email && a["password"] === User.password) {
             localStorage.signinEmail = JSON.stringify(email);
+            localStorage.users=JSON.stringify(a)
             navigate('/Dashboard')
           }else{
             let err = "Please confirm you fill input outlet correctly"

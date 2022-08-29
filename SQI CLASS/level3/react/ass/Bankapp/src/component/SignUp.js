@@ -33,9 +33,8 @@ const AboutDe = () => {
     let year = new Date().getFullYear();
     let time = new Date().toLocaleTimeString();
     let DateCreated =`${date}-${month}-${year}  ${time}`
-    let accountNumber = '00'+Math.floor(Math.random()*100000000)
-    let money = "\u20A6" 
-    let as = "\u20A6" + Math.floor(Math.random()*10000)
+    let accountNumber = '00'+Math.floor(Math.random()*100000000) 
+    let as = "\u20A6 " + Math.floor(Math.random()*10000)
     console.log(as);
     const signup = ()=>{
       if (firstname !=="" && number !=="" && email !=="" && password !=="") {

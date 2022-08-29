@@ -84,7 +84,7 @@ const Dashboard = (props) => {
                                 <p className='pt-2'>Total Balance</p>
                             </div>
                             <div className="col-3">
-                                <h5 className='pt-2' style={{float:'right'}}>#90,000</h5>
+                                <h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.accountBalance}</h5>
                             </div>
                         </div>
                     </div>

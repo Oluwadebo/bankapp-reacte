@@ -28,16 +28,19 @@ const Dashboard = () => {
         if (localStorage.member && localStorage.signinEmail) {
           setallUser(JSON.parse(localStorage.getItem("member")))  
           setcurrent(JSON.parse(localStorage.getItem("signinEmail")))  
-          const found = allUser.map((element,index) => {
-            return (element.email === current)
-           });
-           console.log(found);
-        //    setUser(found)    
         }else{
             navigate('/SignIn')
         }
     }, [])
-
+    
+    const found = allUser.find((element,index) => {
+        return (element.email === current)
+    });
+    localStorage.user = JSON.stringify(found);
+    let last = localStorage.user;
+    // let as = JSON.parse(localStorage.getItem("user"))
+    //    setUser(found)    
+     console.log(found);    
 
     // let index = allUser.findIndex((contact)=>contact.email == current)
     // console.log(index);
@@ -75,7 +78,6 @@ const Dashboard = () => {
             </div>
             </div>
         </nav>
-        {/* <h2>{allUser}</h2> */}
         <div className="mt-5">
             <div className="container">
                 <div className="row pt-4">

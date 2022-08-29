@@ -12,44 +12,20 @@ import App from '../App'
 const Dashboard = (props) => {
     const navigate=useNavigate()
     const [allUser, setallUser] = useState([])
+    const [currentuser, setcurrentuser] = useState('')
+    const [currentuserdetails, setcurrentuserdetails] = useState([])
     const [User, setUser] = useState({})
-    const [current, setcurrent] = useState('')
     const [first, setfirst] = useState()
     useEffect(() => {
-        // if (localStorage.member) {
-        //     let user = JSON.parse(localStorage.getItem("member"));
-        //     let currentuser = JSON.parse(localStorage.getItem("signinEmail"));
-        //     setallUser()
-        //     // let det = user.filter((item,ind)=>currentuser = ind);
-        //     let re = user.find((item,index)=>{
-        //         return(index)
-        //     })
-        //     console.log(allUser);
-        // }
-        if (localStorage.member && localStorage.signinEmail) {
-          setallUser(JSON.parse(localStorage.getItem("member")))  
-          setcurrent(JSON.parse(localStorage.getItem("signinEmail")))  
+        if (localStorage.member && localStorage.signinEmail && localStorage.users) {
+          setallUser(JSON.parse(localStorage.member))  
+          setcurrentuser(JSON.parse(localStorage.signinEmail))  
+          setcurrentuserdetails(JSON.parse(localStorage.users))
         }else{
             navigate('/SignIn')
         }
     }, [])
-    
-    let found = allUser.find((element,index) => element.email === current);
-    // localStorage.user = JSON.stringify(found);
-    // let last = localStorage.user;
-    // let as = JSON.parse(localStorage.getItem("user"))
-    //    setUser(found)  
-    // let ade = found.find((item,index)=>{
-    //     return(item.Lastname)
-    // })  
-     console.log(found);    
-
-    // let index = allUser.findIndex((contact)=>contact.email == current)
-    // console.log(index);
-       
-        // setUser(found)
-        // console.log(User);
-    
+    console.log(currentuserdetails);
     const logout = ()=>{
         localStorage.removeItem("signinEmail")
         navigate('/SignIn')
@@ -85,7 +61,7 @@ const Dashboard = (props) => {
                 <div className="row pt-4">
                     <div className="col-6 d-flex">
                         <img src={imgavatar3} alt="" className='img-fluid rounded-circle me-2' width="40" height="40"/>
-                        <h5 className='pt-2'><b>ADE</b></h5>
+                        <h5 className='pt-2'><b>{currentuserdetails.Lastname}</b></h5>
                     </div>
                     <div className="col-6">
                         <h5 className='pt-2' style={{float:'right'}}>Transfer History</h5>
@@ -98,7 +74,7 @@ const Dashboard = (props) => {
                                 <p className='pt-2'>Account Number</p>
                             </div>
                             <div className="col-3">
-                                <h5 className='pt-2' style={{float:'right'}}>0987654324</h5>
+                                <h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.accountNumber}</h5>
                             </div>
                         </div>
                     </div>

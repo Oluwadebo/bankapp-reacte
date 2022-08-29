@@ -23,9 +23,9 @@ const AboutDe = () => {
       }
     }, [])
     const signin = ()=>{
-      let tobi = JSON.parse(localStorage.getItem("member"))
+      let debo = JSON.parse(localStorage.getItem("member"))
       if (email !=="" && password !=="") {
-        for(const a of tobi){
+        for(const a of debo){
           let User = {email,password}
           if (a["email"] === User.email && a["password"] === User.password) {
             localStorage.signinEmail = JSON.stringify(email);
@@ -36,11 +36,6 @@ const AboutDe = () => {
             setError(err)
           }
         }
-        // let allCustomer = [...allUser]
-        // const found = allCustomer.find((element) => {
-        //  return (element.email === User.email && element.password === User.password)
-        // });
-        // console.log(found);
       }else{
         let err = "Please fill all your input outlet"
         setError(err)
@@ -111,11 +106,15 @@ const AboutDe = () => {
                 <button onClick={signin} className='btn form-control py-3' style={{background:'#1FC69D',border:'none'}}>Sign-In</button>
               </div>
               <div className="row">
-                <div className="col-md-6">
-                  <p style={{opacity: '0.6'}}>Don't have an account?</p>
-                </div>
-                <div className="col-md-6">
-                <p><b><Link to="/SignUp" className='sig'>Sign up</Link></b></p>
+              <div className="col-md-12">
+                  <div className="row">
+                    <div className="col-8">
+                      <p style={{opacity: '0.6'}}>Don't have an account?</p>
+                    </div>
+                    <div className="col-4">
+                      <p><b><Link to="/SignUp" className='sig'>Sign up</Link></b></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

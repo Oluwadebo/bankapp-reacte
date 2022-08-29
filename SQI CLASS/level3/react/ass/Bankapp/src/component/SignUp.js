@@ -15,6 +15,7 @@ const AboutDe = () => {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [history, sethistory] = useState("")
+    const [accountBalance, setaccountBalance] = useState("")
     const [allUser, setallUser] = useState([])
     const [Error, setError] = useState('')
     const navigate=useNavigate()
@@ -33,9 +34,12 @@ const AboutDe = () => {
     let time = new Date().toLocaleTimeString();
     let DateCreated =`${date}-${month}-${year}  ${time}`
     let accountNumber = '00'+Math.floor(Math.random()*100000000)
+    let money = "\u20A6" 
+    let as = "\u20A6" + Math.floor(Math.random()*10000)
+    console.log(as);
     const signup = ()=>{
       if (firstname !=="" && number !=="" && email !=="" && password !=="") {
-        let User = {firstname,Lastname,email,number,password,accountNumber,DateCreated,history}
+        let User = {firstname,Lastname,email,number,password,accountNumber,DateCreated,history,accountBalance}
         setallUser(()=>{
           let Customer = [...allUser,User]
           localStorage.member = JSON.stringify(Customer)
@@ -124,11 +128,15 @@ const AboutDe = () => {
                 <button onClick={signup} className='btn form-control py-3 mt-3' style={{background:'#1FC69D',border:'none'}}>Create account</button>
               </div>
               <div className='row mt-2'>
-                <div className="col-md-6">
-                  <p style={{opacity: '0.6'}}>Do have an account?</p>
-                </div>
-                <div className="col-md-6">
-                <p><b><Link to="/SignIn" className='sig'>Sign In</Link></b></p>
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col-8">
+                      <p style={{opacity: '0.6'}}>Do have an account?</p>
+                    </div>
+                    <div className="col-4">
+                      <p><b><Link to="/SignIn" className='sig'>Sign In</Link></b></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -232,7 +232,7 @@ const Home = () => {
                   <img src={svgexport24} alt="" className='img-fluid'/>
                 </div>
                 <div className="col-10 col-md-11">
-                  <h6><span style={mySpa}>0700 8888328</span> (App & Card queries), <span style={mySpa}>0700 8888329</span> (POS Business queries)</h6>
+                  <h6><span style={mySpa}>0905 8922870</span> (App & Card queries), <span style={mySpa}>0814 8624416</span> (POS Business queries)</h6>
                 </div>
               </div>
               <div className="row mx-auto">
@@ -240,7 +240,7 @@ const Home = () => {
                   <img src={svgexport25} alt="" className='img-fluid'/>
                 </div>
                 <div className="col-10 col-md-11">
-                  <h6><span style={mySpa}>customerservice@opay-inc.com</span></h6>
+                  <h6><span style={mySpa}>ogunweoluwadebo@gmail.com</span></h6>
                 </div>
               </div>
               <div className="row mx-auto">

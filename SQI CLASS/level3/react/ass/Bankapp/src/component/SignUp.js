@@ -15,7 +15,6 @@ const AboutDe = () => {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [history, sethistory] = useState("")
-    const [accountBalance, setaccountBalance] = useState("")
     const [allUser, setallUser] = useState([])
     const [Error, setError] = useState('')
     const navigate=useNavigate()
@@ -34,8 +33,8 @@ const AboutDe = () => {
     let time = new Date().toLocaleTimeString();
     let DateCreated =`${date}-${month}-${year}  ${time}`
     let accountNumber = '00'+Math.floor(Math.random()*100000000) 
-    let as = "\u20A6 " + Math.floor(Math.random()*10000)
-    console.log(as);
+    let accountBalance = "\u20A6 " + Math.floor(Math.random()*10000)
+
     const signup = ()=>{
       if (firstname !=="" && number !=="" && email !=="" && password !=="") {
         let User = {firstname,Lastname,email,number,password,accountNumber,DateCreated,history,accountBalance}

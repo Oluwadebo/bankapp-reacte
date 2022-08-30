@@ -19,7 +19,7 @@ function App() {
         <Route path='/Dashboard' element={<Dashboard/>}/>
         <Route path='/home' element={<Navigate to='/'/>}/>
         <Route path='*' element={<NotFound/>}/>
-      </Routes>
+      {/* </Routes> */}
     </>
   );
 }

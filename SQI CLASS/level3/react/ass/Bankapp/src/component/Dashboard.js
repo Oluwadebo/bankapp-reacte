@@ -16,6 +16,10 @@ const Dashboard = (props) => {
     const [currentuserdetails, setcurrentuserdetails] = useState([])
     const [User, setUser] = useState({})
     const [first, setfirst] = useState()
+    const [amount, setamount] = useState(0)
+    const [account, setaccount] = useState("")
+    const [Error, setError] = useState('')
+
     useEffect(() => {
         if (localStorage.member && localStorage.signinEmail && localStorage.users) {
           setallUser(JSON.parse(localStorage.member))  
@@ -25,13 +29,30 @@ const Dashboard = (props) => {
             navigate('/SignIn')
         }
     }, [])
-    console.log(currentuserdetails);
+    // console.log(currentuserdetails);
     const logout = ()=>{
         localStorage.removeItem("signinEmail")
         navigate('/SignIn')
     }
     let myStyle = {
         fontSize:'20px',
+    }
+    const Confirm =()=>{
+        if (account !=="" && amount !==""){
+            let nn= parseInt(currentuserdetails.accountBalance)  - parseInt(amount)
+            
+            console.log(nn);
+            // let hass = currentuserdetails.find((item,index)=>(index=index));
+            // console.log(hass);
+            let User = {account,amount}
+            setallUser(()=>{
+                let Customer = [...allUser,User]
+                return Customer
+            })
+        }else{
+            let err = "Please fill all your input outlet"
+            setError(err)
+        }
     }
   return (
     <>
@@ -64,7 +85,10 @@ const Dashboard = (props) => {
                         <h5 className='pt-2'><b>{currentuserdetails.Lastname}</b></h5>
                     </div>
                     <div className="col-6">
-                        <h5 className='pt-2' style={{float:'right'}}>Transfer History</h5>
+                        <div className="row">
+                            <div className="col-6"><h5 className='pt-2' style={{float:'right'}}>History</h5></div>
+                            <div className="col-6"><h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.history}</h5></div>
+                        </div>                     
                     </div>
                 </div>
                 <div className="row my-3 p-3 shadow ad">
@@ -80,11 +104,11 @@ const Dashboard = (props) => {
                     </div>
                     <div className="col-12 col-md-6">
                         <div className="row">
-                            <div className="col-9">
+                            <div className="col-8">
                                 <p className='pt-2'>Total Balance</p>
                             </div>
-                            <div className="col-3">
-                                <h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.accountBalance}</h5>
+                            <div className="col-4">
+                                <h5 className='pt-2' style={{float:'right'}}><b>₦</b> {currentuserdetails.accountBalance}</h5>
                             </div>
                         </div>
                     </div>
@@ -93,29 +117,34 @@ const Dashboard = (props) => {
                     <div className="col-4 col-md-4 mx-4 mx-md-auto">
                         <button type="button" className="btn asd" data-bs-toggle="modal" data-bs-target="#transfer">
                             <img src={Otransfer} alt="" className='img-fluid rounded-circle me-2' width="60" height="60"/>
-                            <h5 className='pt-2'>Tansfer</h5>
+                            <h5 className='pt-2'>Transfer</h5>
                         </button>
                         <div className="modal" id="transfer" data-bs-backdrop="static">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5>Tansfer</h5>
+                                        <h5>Transfer</h5>
                                     </div>
                                     <div className="modal-body">
                                     <div>
+                                        <p><b className='text-danger'>{Error}</b></p>
                                         <div className="mb-3">
-                                            <label for="recipient-name" className="col-form-label">Recipient:</label>
-                                            <input type="text" className="form-control" id="recipient-name" />
+                                            <label for="recipient-name" className="col-form-label">Recipient Account</label>
+                                            <input type="number" className="form-control" placeholder='Recipient Account Number' onChange={(e)=>setaccount(e.target.value)} style={{backgroundColor:'#F5F7FA'}}/>
                                         </div>
                                         <div className="mb-3">
-                                            <label for="message-text" className="col-form-label">Message:</label>
-                                            <textarea className="form-control" id="message-text" rows="10"></textarea>
+                                            <label for="recipient-name" className="col-form-label">Amount</label>
+                                            <input type="number" placeholder='Amount' className='form-control' onChange={(e)=>setamount(e.target.value)} style={{backgroundColor:'#F5F7FA'}}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label for="recipient-name" className="col-form-label">Your Balance</label>
+                                            <h5 className='pt-2'><b>₦</b> {currentuserdetails.accountBalance}</h5>
                                         </div>
                                     </div>
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close transaction</button>
-                                        <button type="button" className="btn btn-primary">Confirm transaction</button>
+                                        <button type="button" className="btn btn-primary" onClick={Confirm}>Confirm transaction</button>
                                     </div>
                                 </div>
                             </div>

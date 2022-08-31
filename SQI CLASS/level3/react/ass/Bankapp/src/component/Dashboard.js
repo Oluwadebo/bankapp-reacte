@@ -13,7 +13,8 @@ const Dashboard = (props) => {
     const navigate=useNavigate()
     const [allUser, setallUser] = useState([])
     const [currentuser, setcurrentuser] = useState('')
-    const [currentuserdetails, setcurrentuserdetails] = useState([])
+    const [currentuserdetails, setcurrentuserdetails] = useState({})
+    const [customer, setcustomer] = useState({})
     const [User, setUser] = useState({})
     const [first, setfirst] = useState()
     const [amount, setamount] = useState(0)
@@ -22,14 +23,20 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         if (localStorage.member && localStorage.signinEmail && localStorage.users) {
+            let AllUser=JSON.parse(localStorage.member)
           setallUser(JSON.parse(localStorage.member))  
           setcurrentuser(JSON.parse(localStorage.signinEmail))  
           setcurrentuserdetails(JSON.parse(localStorage.users))
+          let email =  JSON.parse(localStorage.users).email
+          let hass = JSON.parse(localStorage.member).find((item,index)=>item.email===email);
+          let index=JSON.parse(localStorage.member).findIndex((x)=>x.email==email)
+          console.log(index);
+        setcustomer(AllUser[index])
         }else{
             navigate('/SignIn')
         }
     }, [])
-    // console.log(currentuserdetails);
+    console.log(customer);
     const logout = ()=>{
         localStorage.removeItem("signinEmail")
         navigate('/SignIn')
@@ -38,17 +45,21 @@ const Dashboard = (props) => {
         fontSize:'20px',
     }
     const Confirm =()=>{
+      let email =  currentuserdetails.email
+        let hass = allUser.find((item,index)=>item.email===email);
+        let index=allUser.findIndex((x)=>x.email==email)
+        let customer = allUser[index]
+  
         if (account !=="" && amount !==""){
-            let nn= parseInt(currentuserdetails.accountBalance)  - parseInt(amount)
-            
-            console.log(nn);
-            // let hass = currentuserdetails.find((item,index)=>(index=index));
-            // console.log(hass);
             let User = {account,amount}
-            setallUser(()=>{
-                let Customer = [...allUser,User]
-                return Customer
-            })
+          
+           let remain =allUser[index].accountBalance - amount;
+            setallUser(
+                allUser[index].accountBalance = remain
+            )
+           
+            console.log(allUser[index].accountBalance);
+            localStorage.setItem('member',JSON.stringify(allUser))
         }else{
             let err = "Please fill all your input outlet"
             setError(err)
@@ -87,7 +98,7 @@ const Dashboard = (props) => {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6"><h5 className='pt-2' style={{float:'right'}}>History</h5></div>
-                            <div className="col-6"><h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.history}</h5></div>
+                            <div className="col-6"><h5 className='pt-2' style={{float:'right'}}>{customer.history}</h5></div>
                         </div>                     
                     </div>
                 </div>
@@ -98,7 +109,7 @@ const Dashboard = (props) => {
                                 <p className='pt-2'>Account Number</p>
                             </div>
                             <div className="col-3">
-                                <h5 className='pt-2' style={{float:'right'}}>{currentuserdetails.accountNumber}</h5>
+                                <h5 className='pt-2' style={{float:'right'}}>{customer.accountNumber}</h5>
                             </div>
                         </div>
                     </div>
@@ -108,7 +119,7 @@ const Dashboard = (props) => {
                                 <p className='pt-2'>Total Balance</p>
                             </div>
                             <div className="col-4">
-                                <h5 className='pt-2' style={{float:'right'}}><b>₦</b> {currentuserdetails.accountBalance}</h5>
+                                <h5 className='pt-2' style={{float:'right'}}><b>₦</b> {customer.accountBalance}</h5>
                             </div>
                         </div>
                     </div>

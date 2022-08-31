@@ -24,14 +24,14 @@ const Dashboard = (props) => {
     useEffect(() => {
         if (localStorage.member && localStorage.signinEmail && localStorage.users) {
             let AllUser=JSON.parse(localStorage.member)
-          setallUser(JSON.parse(localStorage.member))  
-          setcurrentuser(JSON.parse(localStorage.signinEmail))  
-          setcurrentuserdetails(JSON.parse(localStorage.users))
-          let email =  JSON.parse(localStorage.users).email
-          let hass = JSON.parse(localStorage.member).find((item,index)=>item.email===email);
-          let index=JSON.parse(localStorage.member).findIndex((x)=>x.email==email)
-          console.log(index);
-        setcustomer(AllUser[index])
+            setallUser(JSON.parse(localStorage.member))  
+            setcurrentuser(JSON.parse(localStorage.signinEmail))  
+            setcurrentuserdetails(JSON.parse(localStorage.users))
+            let email =  JSON.parse(localStorage.users).email
+            let hass = JSON.parse(localStorage.member).find((item,index)=>item.email===email);
+            let index=JSON.parse(localStorage.member).findIndex((x)=>x.email==email)
+            console.log(index);
+            setcustomer(AllUser[index])
         }else{
             navigate('/SignIn')
         }
@@ -130,7 +130,7 @@ const Dashboard = (props) => {
                             <img src={Otransfer} alt="" className='img-fluid rounded-circle me-2' width="60" height="60"/>
                             <h5 className='pt-2'>Transfer</h5>
                         </button>
-                        <div className="modal" id="transfer" data-bs-backdrop="static">
+                        <div className="modal" id="transfer">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
@@ -149,7 +149,7 @@ const Dashboard = (props) => {
                                         </div>
                                         <div className="mb-3">
                                             <label for="recipient-name" className="col-form-label">Your Balance</label>
-                                            <h5 className='pt-2'><b>₦</b> {currentuserdetails.accountBalance}</h5>
+                                            <h5 className='pt-2'><b>₦</b> {customer.accountBalance}</h5>
                                         </div>
                                     </div>
                                     </div>
